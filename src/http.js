@@ -10,4 +10,7 @@ axios.interceptors.request.use(function (config) {
   return config;
 })
 
+//给vue新增了属性$http
 Vue.prototype.$http = axios;
+
+

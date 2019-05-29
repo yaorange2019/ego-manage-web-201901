@@ -86,7 +86,7 @@
         pagination: {},// 分页信息
         headers: [// 表头
           {text: 'id', align: 'center', value: 'id'},
-          {text: '名称', align: 'center', sortable: false, value: 'name'},
+          {text: '名称', align: 'center', sortable: true, value: 'name'},
           {text: 'LOGO', align: 'center', sortable: false, value: 'image'},
           {text: '首字母', align: 'center', value: 'letter', sortable: true,},
           {text: '操作', align: 'center', value: 'id', sortable: false}
@@ -151,12 +151,27 @@
       },
       getDataFromApi() {
         this.loading = true;
-        // 200ms后返回假数据
-        window.setTimeout(() => {
-          this.items = brandData.slice(0,4);
-          this.totalItems = 100
+        // // 200ms后返回假数据
+        // window.setTimeout(() => {
+        //   this.items = brandData.slice(0,4);
+        //   this.totalItems = 100
+        //   this.loading = false;
+        // }, 200)
+        this.$http.get("/item/brand/page",{
+          params:{
+            pageNo: this.pagination.page,
+            pageSize: this.pagination.rowsPerPage,
+            descending: this.pagination.descending,
+            sortBy: this.pagination.sortBy,
+            key : this.search
+          }
+        }).then(({data})=>{
+          // console.log(resp);
+          this.items = data.items;
+          this.totalItems = data.total;
           this.loading = false;
-        }, 200)
+        })
+
       }
     }
   }
