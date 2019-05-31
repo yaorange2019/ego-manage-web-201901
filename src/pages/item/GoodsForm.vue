@@ -258,8 +258,7 @@
         this.goods.spuDetail.specTemplate = JSON.stringify(obj);
 
         // 对全局规格参数进行深拷贝
-        const specs = [];
-        Object.deepCopy(this.specifications, specs);
+        const specs = Object.deepCopy(this.specifications);
         specs.forEach(({params}) => {
           params.forEach(p => {
             if (!p.global) {

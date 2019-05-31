@@ -39,7 +39,7 @@
   export default {
     name: "brand-form",
     props: {
-      oldBrand: Object,
+      brand: Object,
       isEdit: {
         type: Boolean,
         default: false
@@ -53,12 +53,12 @@
       return {
         baseUrl: config.api,
         valid:false,
-        brand: {
-          name: "",
-          image: "",
-          letter: "",
-          categories: []
-        },
+        // brand: {
+        //   name: "",
+        //   image: "",
+        //   letter: "",
+        //   categories: []
+        // },
         imageDialogVisible:false
       }
     },
@@ -66,7 +66,7 @@
       oldBrand:{
         deep:true,
         handler(val){
-          Object.deepCopy(val,this.brand);
+          this.brand = Object.deepCopy(val);
         }
       }
     },

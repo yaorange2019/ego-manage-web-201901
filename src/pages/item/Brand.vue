@@ -60,7 +60,7 @@
         </v-toolbar>
         <v-card-text class="px-5 py-2">
           <!-- 表单 -->
-          <brand-form :oldBrand="brand" :isEdit="isEdit" @close="show = false" :reload="getDataFromApi"/>
+          <brand-form :brand="brand" :isEdit="isEdit" @close="show = false" :reload="getDataFromApi"/>
         </v-card-text>
       </v-card>
     </v-dialog>

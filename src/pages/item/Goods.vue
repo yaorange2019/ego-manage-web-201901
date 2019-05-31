@@ -168,7 +168,7 @@
       },
       editItem(item) {
         this.selectedGoods = item;
-        const names = item.cname.split("/");
+        const names = item.categoryName.split("/");
         this.selectedGoods.categories = [
           {id: item.cid1, name: names[0]},
           {id: item.cid2, name: names[1]},
